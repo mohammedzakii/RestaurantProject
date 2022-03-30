@@ -1,0 +1,55 @@
+﻿@model List<Order>
+@{
+    Layout = "_RestLayout";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Order_Id </th>
+                            <th> Price </th>
+                            <th> Name </th>
+                            <th> Delete </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in @Model)
+                        {
+                            <tr>
+                                <td>@order.Id</td>
+                                <td> @order.Price </td>
+                            <td>
+                                @foreach (var Itemord in order.ItemOrder)
+                                {
+                                    
+                                        
+                                          @Itemord.Item.Name <br />
+                                    
+                                }
+                            </td>
+                            @*<td><a asp-action="EditItem" asp-controller="Resturant"
+                                asp-route-id="@Item.Id" class="btn btn-success ">Edit</a></td>*@
+                       <td>
+                            <a asp-action="RemoveOrder" asp-controller="Resturant"
+                           asp-route-id="@order.Id" class="btn btn-danger ">Delete</a>
+                       </td>
+                                    </tr>
+                       
+                       
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

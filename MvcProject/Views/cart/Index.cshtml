@@ -1,0 +1,83 @@
+﻿<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container my-5 py-5">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                <img class="img-fluid" src="img/hero.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            
+            <th>
+                name
+            </th>
+            
+            <th>
+                price
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                subtotal
+            </th>
+            <th>
+
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var sum = 0;
+        }
+        @foreach (var item in ViewBag.cart)
+        {
+            sum += (item.item.Price * item.Quantity);
+
+            <tr>
+                
+                <td>
+                    @item.item.Name
+                </td>
+                
+                <td>
+                    @item.item.Price
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+
+                    @(item.item.Price * item.Quantity ) $
+
+                </td>
+                 <td><a asp-controller="cart"asp-action="Remove"asp-route-id="@item.item.Id"class="text-danger">X</a>
+               </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<div class="m-2">
+<span class=" alert h5 ">Total</span>
+</div>
+<div class="list-group-item ">
+@sum $
+</div>
+@*@foreach(){}
+*@
+<br />
+
+
+
+
+<a href="/category/Index" class="btn btn-success m-3" >continue shopping</a>
+<a asp-controller="Cart" class="btn btn-danger"  asp-action="checkout">checkout</a>

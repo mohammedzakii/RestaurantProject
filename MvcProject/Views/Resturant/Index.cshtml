@@ -1,0 +1,62 @@
+﻿@model Restaurant
+@{
+    Layout = "_RestLayout";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+ <div class="card">
+     <div class="card-body">
+        
+   <div class="table-responsive">
+ <table class="table table-striped">
+<thead>
+      <tr>
+   <th> Image </th>
+     <th> First name </th>
+       <th> Progress </th>
+        <th> Description </th>
+        <th> Price </th>
+        <th>category</th>
+        <th> Edit </th>
+        <th> Delete </th>
+
+                          
+  </tr>
+   </thead>
+  <tbody>
+                  @foreach(var Item in @Model.Items)
+                       {
+                          <tr>
+                            <td class="py-1">
+                              <img src=@Item.Image alt="image" />
+                            </td>
+                            <td> @Item.Name </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> @Item.Description </td>
+                            <td> @Item.Price </td>
+                            <td>@Item.cat_id</td>
+
+
+                            <td><a asp-action="EditItem" asp-controller="Resturant" 
+                                asp-route-id="@Item.Id" class="btn btn-success ">Edit</a></td>
+
+                            <td><a asp-action="DeleteItem" asp-controller="Resturant" 
+                                asp-route-id="@Item.Id" class="btn btn-danger ">Delete</a></td>
+                          </tr>
+                       }
+@*    //////////////////*@
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+

@@ -1,0 +1,42 @@
+﻿@model Item
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                image
+            </th>
+            <th>
+                name
+            </th>
+            <th>
+                description
+            </th>
+            <th>
+                price
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+                    @Model.Image
+                </td>
+                <td>
+                    @Model.Name
+                </td>
+                <td>
+                    @Model.Description
+                </td>
+                <td>
+                    @Model.Price
+                </td>
+
+            </tr>
+        
+    </tbody>
+</table>
+
+<a href="/items/index" class="btn btn-success">All Items</a>

@@ -1,0 +1,44 @@
+﻿@model List<Item>
+@* <div class="d-flex">
+    @foreach (var item in Model)
+    {<div class="card" style="width:400px;margin:6px">
+    @*    <img class="card-img-top" src="/image/@item.Image" alt="Card image"
+    style="width:100%;height:300px">
+    <div class="card-body">
+    <h4 class="card-title">@item.Name</h4>
+    <p class="card-text">@item.Description</p>
+    <p class="card-text">@item.Price $ </p>
+    </div>
+    </div>
+    }
+    </div>
+*@
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-4">
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid rounded" src=@item.Image alt="" style="width: 80px;">
+                                <div class="w-100 d-flex flex-column text-start ps-4">
+                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                        <span>@item.Name</span>
+                                        <span class="text-primary">@item.Price $</span>
+
+                                    </h5>
+                                    <a asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Buy now</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

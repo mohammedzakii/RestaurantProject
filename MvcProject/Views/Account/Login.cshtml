@@ -1,0 +1,51 @@
+﻿@model MvcProject.ViewModel.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container my-5 py-5">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                <img class="img-fluid" src="img/hero.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="card-title" >Login</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="username" class="control-label" ></label>
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Remember_Me" /> @Html.DisplayNameFor(model => model.Remember_Me)
+                </label>
+            </div>
+            <div class="form-group mt-2" >
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

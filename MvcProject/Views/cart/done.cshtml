@@ -1,0 +1,66 @@
+﻿
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container my-5 py-5">
+        <div class="row align-items-center g-5">
+
+            <@*div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                <img class="img-fluid" src="img/hero.png" alt="">
+            </div>*@
+        </div>
+    </div>
+</div>
+@model Order
+
+   
+    <div class="container">
+    <h1>Your order Is Preparing</h1>
+    </div>
+   
+@*
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Order_Id </th>
+                            <th> Items </th>
+                            <th> Price </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ord in @Model.ItemOrder)
+                        {
+                            <tr>
+                                <td>@Model.Id</td>
+                            <td>
+                                        
+                                @ord.Item.Name <br />
+    
+                            </td>
+                                <td> @Model.Price </td>
+                            <td><a asp-action="EditItem" asp-controller="Resturant"
+                                asp-route-id="@Item.Id" class="btn btn-success ">Edit</a></t
+                       <td>
+                            <a asp-action="RemoveOrder" asp-controller="Resturant"
+                           asp-route-id="@order.Id" class="btn btn-danger ">Delete</a>
+                       </td>
+                                    </tr>
+                       
+                       
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+*@
+
+
